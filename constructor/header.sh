@@ -291,6 +291,23 @@ then
     fi
 {%- endif %}
 
+{%- elif riscv64 %}
+    if [ "$(uname -m)" != "riscv64" ]; then
+        printf "WARNING:\\n"
+        printf "    Your machine hardware does not appear to be riscv64, \\n"
+        printf "    but you are trying to install a riscv64 version of %s.\\n" "${INSTALLER_NAME}"
+        printf "    Are sure you want to continue the installation? [yes|no]\\n"
+        printf "[no] >>> "
+        read -r ans
+        ans=$(echo "${ans}" | tr '[:lower:]' '[:upper:]')
+        if [ "$ans" != "YES" ] && [ "$ans" != "Y" ]
+        then
+            printf "Aborting installation\\n"
+            exit 2
+        fi
+    fi
+{%- endif %}
+
 {%- if osx %}
     if [ "$(uname)" != "Darwin" ]; then
         printf "WARNING:\\n"
