@@ -795,7 +795,7 @@ if [ "$BATCH" = "0" ]; then
     printf "Note: You can undo this later by running \`conda init --reverse \$SHELL\`\\n"
     printf "\\n"
     printf "Proceed with initialization? [yes|no]\\n"
-    printf "[%s] >>> " "$DEFAULT"„
+    printf "[%s] >>> " "$DEFAULT"
     read -r ans
     if [ "$ans" = "" ]; then
         ans=$DEFAULT
