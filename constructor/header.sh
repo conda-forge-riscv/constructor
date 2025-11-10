@@ -289,8 +289,6 @@ then
             exit 2
         fi
     fi
-{%- endif %}
-
 {%- elif riscv64 %}
     if [ "$(uname -m)" != "riscv64" ]; then
         printf "WARNING:\\n"
